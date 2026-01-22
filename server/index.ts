@@ -16,8 +16,15 @@ app.use(
   cors({
     origin: allowedOrigins.length > 0 ? allowedOrigins : true,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   }),
 );
+
+// Explicit preflight handler for all routes
+app.options('*', cors());
 
 // Increase body parser limits for large file uploads
 app.use(express.json({ limit: "100mb" }));

@@ -15,4 +15,4 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: CORS_ORIGIN
-        value: https://lawyer-tau-three.vercel.app
+        value: https://lawyer-2.vercel.app,http://localhost:5173,http://localhost:3000
