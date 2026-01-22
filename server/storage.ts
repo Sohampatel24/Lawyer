@@ -189,9 +189,9 @@ export class InMemoryStorage implements IStorage {
       userId: insertDocument.userId,
       fileName: insertDocument.fileName,
       originalName: insertDocument.originalName,
-      fileSize: insertDocument.fileSize,
+      fileSize: insertDocument.fileSize as number,
       filePath: insertDocument.filePath,
-      pageCount: insertDocument.pageCount,
+      pageCount: insertDocument.pageCount as number,
       pageSizes: insertDocument.pageSizes ?? null,
       status: (insertDocument as any).status ?? "pending",
       uploadedAt: now,
@@ -253,7 +253,7 @@ export class InMemoryStorage implements IStorage {
     if (!insertAppliedSignature.signatureId) {
       throw new Error("signatureId is required");
     }
-    if (!insertAppliedSignature.pageNumber || insertAppliedSignature.pageNumber < 1) {
+    if (!insertAppliedSignature.pageNumber || (insertAppliedSignature.pageNumber as number) < 1) {
       throw new Error("pageNumber is required and must be >= 1");
     }
     if (
@@ -295,7 +295,7 @@ export class InMemoryStorage implements IStorage {
       id,
       documentId: insertAppliedSignature.documentId,
       signatureId: insertAppliedSignature.signatureId,
-      pageNumber: insertAppliedSignature.pageNumber,
+      pageNumber: insertAppliedSignature.pageNumber as number,
       position: insertAppliedSignature.position as any,
       appliedAt: new Date(),
     };
