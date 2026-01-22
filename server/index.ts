@@ -6,7 +6,11 @@ const app = express();
 
 // Enable CORS so the frontend can be on Vercel and backend on another host
 const allowedOrigins =
-  process.env.CORS_ORIGIN?.split(",").map((o) => o.trim()).filter(Boolean) ?? [];
+  process.env.CORS_ORIGIN?.split(",").map((o) => o.trim()).filter(Boolean) ?? [
+    "https://lawyer-2.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ];
 
 app.use(
   cors({
