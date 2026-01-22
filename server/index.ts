@@ -73,12 +73,6 @@ app.use((req, res, next) => {
   const port = parseInt(process.env.PORT || "5000", 10);
   const host = process.env.HOST || "0.0.0.0";
 
-  // Use Vite dev server in development only
-  if (process.env.NODE_ENV !== "production" && server) {
-    const { setupVite } = await import("./vite");
-    await setupVite(app, server);
-  }
-
   if (server) {
     server.listen(port, host, () => {
       console.log(`🚀 Server running at http://${host}:${port}`);
