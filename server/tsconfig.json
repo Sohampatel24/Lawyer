@@ -12,13 +12,13 @@
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "noEmit": false,
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["./shared/*"]
     }
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "dist", "vite.ts"]
+  "include": ["index.ts", "routes.ts", "db.ts", "storage.ts", "drizzle.config.ts", "services/**/*.ts", "shared/**/*.ts"],
+  "exclude": ["node_modules", "dist", "vite.ts", "**/*.config.ts"]
 }
